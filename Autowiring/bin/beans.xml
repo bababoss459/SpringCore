@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation= "http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:annotation-config/> 
+       
+    <bean id="deptObj" class="com.autowire.HRDept"></bean>
+    
+    <bean id="company" class="com.autowire.Company" autowire="byType"></bean>
+    
+</beans>
+
+<!-- autowiring works on reference type value only not on primitive -->
+
+<!-- constructor via constructor -->
+<!-- byName - finds whether the ref variable in class is same as id -->
+	<!-- but first its check for byType, if matched then inject, not need to check for byname -->
+<!-- setter is needed for byName&byType -->	<!-- in Company class - dept is given but in id - deptObj is there -->
+	<!-- also it can be confused if all beans are matched byType but not byname -->
+<!-- byType - check for type only, also can by confused -->
+<!-- default or write nothing - constructor -->
