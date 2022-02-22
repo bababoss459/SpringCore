@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation= "http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="engineObj" class="com.depinj.Engine"></bean>
+    
+    <!-- now only one engine bean will be created -->
+    <!-- and will be referred by bot bike & car beans -->
+    
+    <bean id="bike" class="com.depinj.Bike">
+    	<constructor-arg name="engine" ref="engineObj"/>
+    </bean>
+    <bean id="car" class="com.depinj.Car">
+    	<constructor-arg name="engine" ref="engineObj"/>
+    </bean>
+    
+    <!-- by this method 2 engine bean (subobject) will be created --> 
+     
+	<!--   <bean id ="bike" class = "com.depinj.Bike">  			-->
+	<!-- <constructor-arg name="engine">--><!--by using constructor-->	
+	<!-- <bean class="com.depinj.Engine"></bean> 					 -->		
+	<!-- </constructor-arg> </bean>	-->	
+	
+	<!--   <bean id ="car" class = "com.depinj.Car">  			-->
+	<!-- <constructor-arg name="engine">						-->	
+	<!-- <bean class="com.depinj.Engine"></bean> 			 -->		
+	<!-- </constructor-arg> </bean>	-->	
+	
+</beans>
